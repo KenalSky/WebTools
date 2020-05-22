@@ -1,5 +1,4 @@
 import requests
-from bs4 import BeautifulSoup
 import re
 import urllib.request
 import socket
@@ -41,7 +40,7 @@ if __name__ == "__main__":
   if not os.path.exists("Temp/"):
     os.mkdir("Temp/")
   exec_str = r'del ' + r'Temp\*.ts '
-  os.system(exec_str) # 先清理的文件
+  os.system(exec_str) # 先清理Temp目录下所有.ts文件
   i = 0
   print("若长时间无响应,重启程序再试.")
   while True:
@@ -64,6 +63,8 @@ if __name__ == "__main__":
   try:
     path = "Temp/"
     for file in os.listdir(path) :  #文件名补零
+      if file[-3:] != ".ts":        #跳过非.ts文件
+        continue
       name = file.split('.')[0]
       length = len(str(i-1))
       ld = "%0" + str(length) + "d"
@@ -101,7 +102,7 @@ if __name__ == "__main__":
     # print(exec_str)
     os.system(exec_str) # 使用cmd命令将资源整合
     exec_str = r'del ' + r'Temp\*.ts '
-    os.system(exec_str) # 删除原来的文件
+    os.system(exec_str) # 删除Temp目录下所有.ts文件的文件
   except:
     print("Merge failed.请重启软件再试!")
   else:

@@ -11,7 +11,7 @@ Based on [Python](https://www.python.org) application
 
 ### Version info
 
-This project was originally generated on Tue May 21 2020.
+This project was originally generated on Thu May 21 2020.
 
 <!--			 -->
 
